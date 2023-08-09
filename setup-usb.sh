@@ -13,7 +13,7 @@ fi
 
 if ! grep -qE '^\s*dtoverlay\s*=\s*dwc2\s*$' /boot/config.txt
 then
-  CMD=(cp -vf /boot/config.txt /boot/config.txt.bkp)
+  CMD=(cp -vf /boot/config.txt /boot/config.txt.setup-usb-bkp)
   echo + "${CMD[*]}" && "${CMD[@]}"
 
   CMD=('echo "dtoverlay=dwc2" >> /boot/config.txt')
@@ -28,7 +28,7 @@ fi
 if ! grep -qE 'modules-load=dwc2' /boot/cmdline.txt
 then
   echo
-  CMD=(cp -f /boot/cmdline.txt /boot/cmdline.txt.bkp)
+  CMD=(cp -f /boot/cmdline.txt /boot/cmdline.txt.setup-usb-bkp)
   echo + "${CMD[*]}" && "${CMD[@]}"
 
   CMD=(sed -i -E)
@@ -51,7 +51,7 @@ echo + "${CMD[*]}" && "${CMD[@]}"
 
 if ! grep -qE 'libcomposite' /etc/modules
 then
-  CMD=(cp -vf /etc/modules /etc/modules.bkp)
+  CMD=(cp -vf /etc/modules /etc/modules.setup-usb-bkp)
   echo + "${CMD[*]}" && "${CMD[@]}"
 
   CMD=('echo "libcomposite" >> /etc/modules')

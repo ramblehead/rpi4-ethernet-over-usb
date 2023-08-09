@@ -33,14 +33,15 @@ set -o pipefail
 readonly COMMAND="$1"
 
 # a UDC device name - RPi4 only has only one UDC"
-UDC_DEVICE="$(ls /sys/class/udc)"
+# UDC_DEVICE="$(ls /sys/class/udc)"
+UDC_DEVICE="$<udc-device>"
 readonly UDC_DEVICE
 
 g="/sys/kernel/config/usb_gadget/pi4"
 
 rpi4_usb_up() {
   readonly USB_VER="0x0200" # USB 2.0
-  readonly DEV_CLASS="2" # Communications - LEGO firmware is 0
+  readonly DEV_CLASS="2" # Communications
   readonly VID="0x1d6b" # Linux Foundation
   readonly PID="0x0104" # Multifunction Composite Gadget
 
