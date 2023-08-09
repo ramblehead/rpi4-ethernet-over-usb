@@ -3,6 +3,11 @@
 set -eu
 set -o pipefail
 
+if (( $(id -u) != 0 )); then
+  echo "Please, run as root"
+  exit 1
+fi
+
 readonly ETHER=eth0
 SNAME=$(basename "${BASH_SOURCE[0]}")
 readonly SNAME
