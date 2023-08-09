@@ -49,7 +49,7 @@ echo + "${CMD[*]}" && "${CMD[@]}"
 # /b/; Enable libcomposite module
 # /b/{
 
-if ! grep -qE 'libcomposite' /etc/modules
+if ! grep -qE '^\s*libcomposite\*$' /etc/modules
 then
   CMD=(cp -vf /etc/modules /etc/modules.setup-usb-bkp)
   echo + "${CMD[*]}" && "${CMD[@]}"

@@ -4,6 +4,8 @@
 
 # USB Gadget for Raspbery Pi 4 Ethernet-over-USB
 #
+# Copyright (C) 2023 Victor Rybynok <v.rybynok@gmail.com>
+#
 # This script is based on the original work of
 # David Lechner <david@lechnology.com>:
 # https://github.com/ev3dev/ev3-systemd/blob/ev3dev-jessie/scripts/ev3-usb.sh
