@@ -192,7 +192,6 @@ rpi4_usb_down() {
 }
 
 case ${COMMAND} in
-
 up)
   rpi4_usb_up
   ;;
