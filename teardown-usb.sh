@@ -41,6 +41,7 @@ else
   CMD=(rm -vf /usr/local/bin/rpi4-usb.sh)
   echo + "${CMD[*]}" && "${CMD[@]}"
 
+  echo
   CMD=(rm -vf /usr/local/lib/systemd/system/rpi4-usb.service)
   echo + "${CMD[*]}" && "${CMD[@]}"
 fi
