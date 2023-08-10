@@ -33,7 +33,13 @@ then
   echo
   CMD=(sed -zE -i)
   CMD+=("'s/[^\n]*denyinterfaces\s+usb0\s*\n//g'")
-  CMD+=(/etc/modules)
+  CMD+=(/etc/dhcpcd.conf)
+  echo + "${CMD[*]}" && eval "${CMD[*]}"
+
+  echo
+  CMD=(sed -E -i)
+  CMD+=("':a;N;\$!ba;s/\n+$//'")
+  CMD+=(/etc/dhcpcd.conf)
   echo + "${CMD[*]}" && eval "${CMD[*]}"
 fi
 
