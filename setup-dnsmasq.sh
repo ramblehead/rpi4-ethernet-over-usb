@@ -34,6 +34,7 @@ echo
 CMD=(apt install dnsmasq)
 echo + "${CMD[*]}" && "${CMD[@]}"
 
+echo
 echo Creating /etc/dnsmasq.d/usb...
 cat > /etc/dnsmasq.d/usb <<EOF
 interface=usb0
@@ -42,6 +43,7 @@ dhcp-option=3,10.55.0.1
 leasefile-ro
 EOF
 
+echo
 echo Creating /etc/network/interfaces.d/usb0...
 cat > /etc/network/interfaces.d/usb0 <<EOF
 auto usb0

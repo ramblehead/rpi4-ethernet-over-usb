@@ -20,9 +20,11 @@ cd "${SDPATH}"; echo + cd "${PWD}"
 
 if ! grep -qE '^\s*dtoverlay\s*=\s*dwc2\s*$' /boot/config.txt
 then
+  echo
   CMD=(cp -vf /boot/config.txt /boot/config.txt.setup-usb-bkp)
   echo + "${CMD[*]}" && "${CMD[@]}"
 
+  echo
   CMD=('echo "dtoverlay=dwc2" >> /boot/config.txt')
   echo + "${CMD[*]}" && eval "${CMD[*]}"
 fi
