@@ -57,7 +57,7 @@ then
   echo + "${CMD[*]}" && "${CMD[@]}"
 
   echo
-  CMD=(sed -ziE)
+  CMD=(sed -zE -i)
   CMD+=("'s/[^\n]*libcomposite\s*\n//g'")
   CMD+=(/etc/modules)
   echo + "${CMD[*]}" && eval "${CMD[*]}"
@@ -75,7 +75,7 @@ then
   echo + "${CMD[*]}" && "${CMD[@]}"
 
   echo
-  CMD=(sed -i -E)
+  CMD=(sed -E -i)
   CMD+=("'s/\s+modules-load=dwc2\s+/ /'")
   CMD+=(/boot/cmdline.txt)
   echo + "${CMD[*]}" && eval "${CMD[*]}"
@@ -93,7 +93,7 @@ then
   echo + "${CMD[*]}" && "${CMD[@]}"
 
   echo
-  CMD=(sed -ziE)
+  CMD=(sed -zE -i)
   CMD+=("'s/[^\n]*dtoverlay\s*=\s*dwc2\s*\n//g'")
   CMD+=(/boot/config.txt)
   echo + "${CMD[*]}" && eval "${CMD[*]}"

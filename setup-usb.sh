@@ -38,8 +38,8 @@ then
   CMD=(cp -f /boot/cmdline.txt /boot/cmdline.txt.setup-usb-bkp)
   echo + "${CMD[*]}" && "${CMD[@]}"
 
-  CMD=(sed -iE)
-  CMD+=('"s/^\(.*\s\+rootwait\)\s\+\(.*\)$/\1 modules-load=dwc2 \2/"')
+  CMD=(sed -E -i)
+  CMD+=('"s/^(.*\s+rootwait)\s+(.*)$/\1 modules-load=dwc2 \2/"')
   CMD+=(/boot/cmdline.txt)
   echo + "${CMD[*]}" && eval "${CMD[*]}"
 fi
