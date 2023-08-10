@@ -29,14 +29,14 @@
 set -eu
 set -o pipefail
 
-# command line parameters
+# Command line parameters
 
 # "up" or "down"
 readonly COMMAND="$1"
 
-# a UDC device name - RPi4 only has only one UDC"
+# A UDC device name - RPi4 only has only one UDC", thus:
 # UDC_DEVICE="$(ls /sys/class/udc)"
-UDC_DEVICE="$<udc-device>"
+UDC_DEVICE="fe980000.usb" # Assuming that this number is the same accross RPi 4
 readonly UDC_DEVICE
 
 g="/sys/kernel/config/usb_gadget/pi4"
@@ -55,7 +55,7 @@ rpi4_usb_up() {
   readonly MANF="ramblehead"
   readonly PROD="rh-pie"
 
-  # TODO: Find what to use for serial. For now using CPU serial.
+  # Using CPU serial as the device serial
   SERIAL="$(grep Serial /proc/cpuinfo | sed 's/Serial\s*:\s*\(\w*\)/\1/')"
   readonly SERIAL
   readonly ATTR="0x80" # Bus-powered, no remote wakeup support.
@@ -63,7 +63,9 @@ rpi4_usb_up() {
   readonly CFG_CDC="CDC"
   readonly CFG_RNDIS="RNDIS"
 
-  # add colons for MAC address format
+  # Using device/CPU serial to generate MAC addresses
+
+  # Add colons for MAC address format
   MAC="$(echo "${SERIAL}" | sed 's/\(\w\w\)/:\1/g' | cut -b 8-)"
   readonly MAC
 

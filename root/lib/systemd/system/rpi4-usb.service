@@ -4,7 +4,8 @@
 Description=USB Gadget for Raspbery Pi 4 Ethernet-over-USB
 ConditionPathIsDirectory=/sys/kernel/config/usb_gadget
 Before=network.target
-BindsTo=$<udc-device>
+# Assuming that this systemd device name does not change accross RPi 4
+BindsTo=sys-devices-platform-soc-fe980000.usb-udc-fe980000.usb.device
 
 [Service]
 Type=oneshot
