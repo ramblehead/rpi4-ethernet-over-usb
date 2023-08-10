@@ -65,6 +65,24 @@ fi
 
 # /b/}
 
+# /b/; Remove dwc2 from /boot/cmdline.txt
+# /b/{
+
+if grep -qE 'modules-load=dwc2' /boot/cmdline.txt
+then
+  echo
+  CMD=(cp -f /boot/cmdline.txt /boot/cmdline.txt.setup-usb-bkp)
+  echo + "${CMD[*]}" && "${CMD[@]}"
+
+  echo
+  CMD=(sed -i -E)
+  CMD+=("'s/\s+modules-load=dwc2\s+/ /'")
+  CMD+=(/boot/cmdline.txt)
+  echo + "${CMD[*]}" && eval "${CMD[*]}"
+fi
+
+# /b/}
+
 # /b/; Remove dwc2 from /boot/config.txt
 # /b/{
 
@@ -82,19 +100,3 @@ then
 fi
 
 # /b/}
-
-# # /b/; Remove dwc2 from /boot/cmdline.txt
-# # /b/{
-
-# if ! grep -qE 'modules-load=dwc2' /boot/cmdline.txt
-# then
-#   echo
-#   CMD=(cp -f /boot/cmdline.txt /boot/cmdline.txt.setup-usb-bkp)
-#   echo + "${CMD[*]}" && "${CMD[@]}"
-
-#   CMD=(sed -i -E)
-#   CMD+=("'s/^\(.*\s+rootwait\)\s+\(.*\)$/\1 modules-load=dwc2 \2/'")
-#   echo + "${CMD[*]}" && eval "${CMD[*]}"
-# fi
-
-# # /b/}
