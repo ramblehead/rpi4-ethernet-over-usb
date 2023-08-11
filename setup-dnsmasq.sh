@@ -39,7 +39,7 @@ echo Creating /etc/dnsmasq.d/usb...
 cat > /etc/dnsmasq.d/usb <<EOF
 interface=usb0
 dhcp-range=10.55.0.2,10.55.0.6,255.255.255.248,1h
-dhcp-option=3,10.55.0.1
+dhcp-option=3
 leasefile-ro
 EOF
 
