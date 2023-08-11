@@ -104,7 +104,7 @@ First argument of `update-hostname.sh` is the user-defined `<hostname>`. For
 example, to set `<hostname>` to `rh-rpi` run:
 
 ```bash
-sudd ./update-hostname.sh rh-rpi
+sudo ./update-hostname.sh rh-rpi
 ```
 
 # Credits
