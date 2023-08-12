@@ -42,7 +42,15 @@ readonly UDC_DEVICE
 g="/sys/kernel/config/usb_gadget/pi4"
 
 rpi4_usb_up() {
-  readonly USB_VER="0x0200" # USB 2.0
+  # USB C port on Raspberry Pi only supports USB 2.0 standard.
+  # USB 2.0 max current is 500mA. However, Raspbery Pi 4 under load can consume
+  # above 1A and a lot more with HATs. Pi 4 specs suggest that USB C min current
+  # should be 3A.
+  # USB 3.2 standard support up to 3A therefore setting USB_VER to 0x0320
+  # instead of 0x0200.
+  # So far I have not noticed and side effects with this USB_VER upgrade.
+  # readonly USB_VER="0x0200" # USB 2.0
+  readonly USB_VER="0x0320"
   readonly DEV_CLASS="2" # Communications
   readonly VID="0x1d6b" # Linux Foundation
   readonly PID="0x0104" # Multifunction Composite Gadget
@@ -59,7 +67,7 @@ rpi4_usb_up() {
   SERIAL="$(grep Serial /proc/cpuinfo | sed 's/Serial\s*:\s*\(\w*\)/\1/')"
   readonly SERIAL
   readonly ATTR="0x80" # Bus-powered, no remote wakeup support.
-  readonly PWR="375" # USB 3.2 multi-lane Type-C supports up to 3A; 8 mA units
+  readonly PWR="375" # USB 3.2 Type-C supports up to 3A; 8 mA units
   readonly CFG_CDC="CDC"
   readonly CFG_RNDIS="RNDIS"
 
