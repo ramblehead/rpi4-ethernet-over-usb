@@ -109,7 +109,7 @@ sudo ./update-hostname.sh rh-rpi
 
 # Credits
 
-* David Lechner <david@lechnology.com>:
+* David Lechner's project:
   https://github.com/ev3dev/ev3-systemd/blob/ev3dev-jessie/scripts/ev3-usb.sh
 
 * Ben Hardill's blog post:
