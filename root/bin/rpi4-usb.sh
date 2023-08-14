@@ -61,7 +61,7 @@ rpi4_usb_up() {
   readonly DEVICE="0x0100"
 
   readonly MANF="ramblehead"
-  readonly PROD="rh-pie"
+  readonly PROD="rh-rpi"
 
   # Using CPU serial as the device serial
   SERIAL="$(grep Serial /proc/cpuinfo | sed 's/Serial\s*:\s*\(\w*\)/\1/')"
