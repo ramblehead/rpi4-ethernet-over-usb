@@ -113,4 +113,4 @@ sudo ./update-hostname.sh rh-rpi
   https://github.com/ev3dev/ev3-systemd/blob/ev3dev-jessie/scripts/ev3-usb.sh
 
 * Ben Hardill's blog post:
-  https://www.hardill.me.uk/wordpress/2020/02/21/building-custom-raspberry-pi-sd-card-images/
+  https://www.hardill.me.uk/wordpress/2019/11/02/pi4-usb-c-gadget/
