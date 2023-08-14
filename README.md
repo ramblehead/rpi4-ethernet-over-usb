@@ -58,7 +58,7 @@ this IP address can be used to access Raspberry Pi from the host computer. For e
 ssh <user-name>@10.55.0.1
 ```
 
-where `<user-name>` is your Raspberry Pi OS user name.
+where `<user-name>` is your user name on Raspberry Pi.
 
 
 ## mDNS
