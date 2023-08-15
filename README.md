@@ -65,8 +65,12 @@ where `<user-name>` is your user name on Raspberry Pi.
 
 mDNS stands for "Multicast DNS". It is a protocol that allows devices on a local
 network to discover and communicate with each other using domain names without
-requiring a centralized DNS server. All major modern OS support mDNS names
-resolution - including Windows 10 and above.
+requiring a centralized DNS server. All major modern OS should support mDNS
+names resolution - including Windows 10 and above.
+
+To use mDNS with Windows 7/8 install [Bonjour Print
+Services](https://downloads.redpitaya.com/tools/BonjourPSSetup.exe), otherwise
+access to *.local addresses will not work.
 
 On Raspberry Pi mDNS is configured by default (with `avahi`). `avahi` uses
 Raspberry Pi OS `<hostname>` as the default mDNS name.
