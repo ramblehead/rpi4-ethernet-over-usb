@@ -69,8 +69,7 @@ requiring a centralized DNS server. All major modern OS should support mDNS
 names resolution - including Windows 10 and above.
 
 To use mDNS with Windows 7/8 install [Bonjour Print
-Services](https://downloads.redpitaya.com/tools/BonjourPSSetup.exe), otherwise
-access to *.local addresses will not work.
+Services](https://downloads.redpitaya.com/tools/BonjourPSSetup.exe).
 
 On Raspberry Pi mDNS is configured by default (with `avahi`). `avahi` uses
 Raspberry Pi OS `<hostname>` as the default mDNS name.
